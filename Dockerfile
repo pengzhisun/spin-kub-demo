@@ -1,4 +1,4 @@
-FROM golang
+FROM crproxy.trafficmanager.net:5000/library/golang
 
 ADD . /go/src/github.com/azure-devops/k8s-demo
 
