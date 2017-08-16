@@ -1,19 +1,19 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"io/ioutil"
-	"os"
-	"fmt"
 	"net/http"
+	"os"
 )
 
 func index(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("Handling %+v\n", r);
+	fmt.Printf("Handling %+v\n", r)
 	bs, err := ioutil.ReadFile("/content/index.html")
 
 	if err != nil {
-		fmt.Printf("Couldn't read index.html: %v", err);
+		fmt.Printf("Couldn't read index.html: %v", err)
 		os.Exit(1)
 	}
 
@@ -22,7 +22,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", index)
-	port := ":8000"
-	fmt.Printf("Starting to service on port %s\n", port);
+	port := ":8010"
+	fmt.Printf("Starting to service on port %s\n", port)
 	http.ListenAndServe(port, nil)
 }
