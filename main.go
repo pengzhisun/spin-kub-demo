@@ -11,7 +11,7 @@ import (
 func index(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("Handling %+v\n", r)
 	bs, err := ioutil.ReadFile("/content/index.html")
-
+	fmt.Printf("The repsponse is : %s\n", string(bs))
 	if err != nil {
 		fmt.Printf("Couldn't read index.html: %v", err)
 		os.Exit(1)
